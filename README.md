@@ -8,7 +8,9 @@ Windows portable exe, no install required
 
 Need to click "run anyways" on Windows.	
 
-If that is unacceptable due to security issues, you can get it from the windows store or use the Web APP version : http://dscript.org/dscriptor
+If that is unacceptable due to security issues, you can get it from the windows store or use the Web APP version
+
+http://dscript.org/dscriptor
 
 Tech Stack
 Core: Rust, Tauri, Vite, TypeScript

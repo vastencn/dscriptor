@@ -23,7 +23,7 @@ Genesis (Editor): This is where it begins. Get inspired and design foundational 
 
 Codex (Fonts): Take your character bank and turn it into fonts of many styles. You can download raw .ttf font files directly, or pass your library down the workflow.
 
-Scribe (Text): [In Development] The Scribe uses your characters, but not just as a static font. It adds the organic imperfections of true handwriting, ensuring that no two characters ever look the same—even when the same character is repeated.
+Scribe (Text): The Scribe uses your characters, but not just as a static font. It adds the organic imperfections of true handwriting, ensuring that no two characters ever look the same—even when the same character is repeated.
 
 Stamper: Take the organic text produced by the Scribe and stamp it onto your 3D assets, either as a floating decal or baked directly into the model's texture.
 

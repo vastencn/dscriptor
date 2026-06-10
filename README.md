@@ -1,4 +1,5 @@
 About The Project
+
 Fonts are only the beginning. Creating glyphs that fit neatly in a line is just the surface level of script design. My true passion is crafting writing systems that are so unique they completely defy becoming a font altogether.
 
 Dscriptor is a procedural font generation and layout toolchain built for worldbuilders, conlangers, and 3D artists. It bridges the gap between 2D vector drawing, organic handwriting simulation, and 3D asset integration.

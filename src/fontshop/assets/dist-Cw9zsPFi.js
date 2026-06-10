@@ -1,0 +1,1 @@
+import{s as e}from"./dist-CrUOzF_H.js";export{e as GlobalSettings};

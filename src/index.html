@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dscriptor: Living Text to Bring Depth to Your Worlds and Lore</title>
+    <meta name="description" content="A procedural font generator toolchain for creating organic writing systems and stamping them onto your 3D assets.">
+    
+    <meta property="og:title" content="Dscriptor: Living Text to Bring Depth to Your Worlds and Lore">
+    <meta property="og:description" content="A procedural font generator toolchain for creating organic writing systems and stamping them onto your 3D assets.">
+    <meta property="og:image" content="./media/promo.webp">
+    <meta property="og:url" content="https://www.dscript.org/dscriptor">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Dscriptor: Living Text to Bring Depth to Your Worlds and Lore">
+    <meta name="twitter:description" content="A procedural font generator toolchain for creating organic writing systems and stamping them onto your 3D assets.">
+    <meta name="twitter:image" content="./media/promo.webp">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="shell-container">
+        <!-- Native Custom Titlebar -->
+        <div data-tauri-drag-region class="titlebar" id="titlebar">
+            <div class="titlebar-title" data-tauri-drag-region>DScriptor</div>
+            <div class="titlebar-buttons" data-tauri-drag-region="false">
+                <button class="titlebar-button" id="titlebar-minimize" data-tauri-drag-region="false">
+                    <svg viewBox="0 0 10 1" fill="none"><path d="M0 0.5H10" stroke="currentColor" stroke-width="1.5"/></svg>
+                </button>
+                <button class="titlebar-button" id="titlebar-maximize" data-tauri-drag-region="false">
+                    <svg viewBox="0 0 10 10" fill="none"><rect x="1" y="1" width="8" height="8" stroke="currentColor" stroke-width="1.5"/></svg>
+                </button>
+                <button class="titlebar-button titlebar-close" id="titlebar-close" data-tauri-drag-region="false">
+                    <svg viewBox="0 0 10 10" fill="none"><path d="M1 1L9 9M9 1L1 9" stroke="currentColor" stroke-width="1.5"/></svg>
+                </button>
+            </div>
+        </div>
+        <header class="top-nav glass-panel">
+            <div class="tabs-container" id="tabs">
+                <button class="tab-button active" data-target="editor">
+                    <span class="tab-title" data-i18n="tab_genesis_title">Genesis</span>
+                    <span class="tab-subtitle" data-i18n="tab_genesis_sub">Editor</span>
+                </button>
+                <button class="tab-button" data-target="fontshop">
+                    <span class="tab-title" data-i18n="tab_codex_title">Codex</span>
+                    <span class="tab-subtitle" data-i18n="tab_codex_sub">Fonts</span>
+                </button>
+                <button class="tab-button" data-target="scribepad">
+                    <span class="tab-title" data-i18n="tab_scribe_title">Scribe</span>
+                    <span class="tab-subtitle" data-i18n="tab_scribe_sub">Text</span>
+                </button>
+                <button class="tab-button" data-target="stamper">
+                    <span class="tab-title" data-i18n="tab_stamper_title">Stamper</span>
+                    <span class="tab-subtitle" data-i18n="tab_stamper_sub">Asset Stamping</span>
+                </button>
+                <button class="tab-button" data-target="sculptor">
+                    <span class="tab-title" data-i18n="tab_sculptor_title">Sculptor</span>
+                    <span class="tab-subtitle" data-i18n="tab_sculptor_sub">Sculpting</span>
+                </button>
+                <button class="tab-button" data-target="carver">
+                    <span class="tab-title" data-i18n="tab_carver_title">Carver</span>
+                    <span class="tab-subtitle" data-i18n="tab_carver_sub">3D Alpha</span>
+                </button>
+                <button class="tab-button" data-target="filters" style="display: none;">
+                    <span class="tab-title" data-i18n="tab_filters_title">Filters</span>
+                    <span class="tab-subtitle" data-i18n="tab_filters_sub">Filters</span>
+                </button>
+                <button class="tab-button" data-target="thedeep">
+                    <span class="tab-title" data-i18n="tab_thedeep_title">The Deep</span>
+                    <span class="tab-subtitle" data-i18n="tab_thedeep_sub">Beyond Fonts</span>
+                </button>
+            </div>
+
+            <div class="logo" style="display: flex; align-items: center;">
+                <h1 style="margin: 0;"><span style="color: #10b981;">D</span>SCRIPT<span class="accent">OR</span></h1>
+                <button id="tutorial-toggle" style="width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #000; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; cursor: pointer; padding: 0; margin-left: 8px;">!</button>
+                <span id="shell-license-badge" style="margin-left: 8px; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 4px; display: none;"></span>
+            </div>
+
+            <div class="right-controls" style="display: flex; align-items: center; gap: 16px; margin-right: -24px;">
+                <div style="display: flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.5); padding: 4px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                    <button id="zoom-out" style="background: rgba(255,255,255,0.1); color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">-</button>
+                    <input type="text" id="global-zoom-input" value="100%" style="background: transparent; color: white; border: none; width: 45px; text-align: center; font-size: 13px; font-weight: bold; outline: none;">
+                    <button id="zoom-in" style="background: rgba(255,255,255,0.1); color: white; border: none; width: 24px; height: 24px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; justify-content: center; transition: background 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='rgba(255,255,255,0.1)'">+</button>
+                </div>
+                <select id="language-switcher" class="language-switcher">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="zh">中文</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="ru">Русский</option>
+                    <option value="de">Deutsch</option>
+                    <option value="pl">Polski</option>
+                    <option value="uk">Українська</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ar">العربية</option>
+                    <option value="bn">বাংলা</option>
+                    <option value="ur">اردو</option>
+                    <option value="id">Bahasa Indonesia</option>
+                    <option value="mr">मराठी</option>
+                    <option value="te">తెలుగు</option>
+                </select>
+                <img src="./assets/top.jpg" style="height: 100%; max-height: 60px; object-fit: contain; padding: 0; box-sizing: border-box; pointer-events: none;" alt="Banner" />
+            </div>
+        </header>
+
+        <main class="workspace">
+            <!-- IFrames pointing to the compiled tools -->
+            <iframe id="editor-frame" src="./editor/index.html" class="tool-frame active" frameborder="0"></iframe>
+            <iframe id="fontshop-frame" src="./fontshop/index.html" class="tool-frame" frameborder="0"></iframe>
+            <iframe id="scribepad-frame" src="./scribepad/index.html" class="tool-frame" frameborder="0"></iframe>
+            <iframe id="stamper-frame" src="./stamper/index.html" class="tool-frame" frameborder="0"></iframe>
+            <iframe id="sculptor-frame" src="./sculptor/index.html" class="tool-frame" frameborder="0"></iframe>
+            <iframe id="carver-frame" src="./carver/index.html" class="tool-frame" frameborder="0"></iframe>
+            <iframe id="filters-frame" src="./filters/index.html" class="tool-frame" frameborder="0"></iframe>
+            
+            <div id="thedeep-frame" class="tool-frame">
+                <iframe src="https://www.dscript.org" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                <div id="thedeep-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); background: rgba(0,0,0,0.4); display: flex; align-items: center; justify-content: center; z-index: 10; transition: opacity 0.4s ease;">
+                    <div style="background: var(--panel-bg); border: 1px solid var(--panel-border); padding: 40px; border-radius: 12px; max-width: 600px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.8), 0 0 40px rgba(16, 185, 129, 0.1);">
+                        <h2 data-i18n="thedeep_warning" style="color: #ef4444; margin-bottom: 24px; font-size: 2rem; font-family: 'Outfit', sans-serif;">Warning: Deep Waters Ahead</h2>
+                        <p data-i18n="thedeep_desc" style="color: var(--text-bright); font-size: 1.15rem; line-height: 1.7; margin-bottom: 32px;">
+                            Fonts are only the beginning. Creating glyphs that fit neatly in a line is just the surface level of script design. My true passion is crafting writing systems that are so unique they completely defy becoming a font altogether.
+                        </p>
+                        <button id="thedeep-enter-btn" data-i18n="thedeep_btn" class="btn" style="background: #10b981; color: #000; font-weight: bold; font-size: 1.1rem; padding: 14px 32px; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.2s, background 0.2s;" onmouseover="this.style.background='#34d399'" onmouseout="this.style.background='#10b981'">
+                            Down the rabbit hole...
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <!-- First Run Intro Overlay -->
+        <div id="intro-overlay" class="modal-overlay hidden">
+            <div class="intro-glass-panel">
+                <div id="mobile-warning" style="display: none; background: rgba(0,0,0,0.6); padding: 24px; border-radius: 12px; border: 2px solid #ef4444; margin-bottom: 24px; box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);">
+                    <h3 style="color: #ef4444; text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-size: 1.5rem; font-weight: bold; margin-bottom: 12px; text-transform: uppercase;">This tool is not optimized for mobile.</h3>
+                    <p style="color: var(--text-bright); line-height: 1.6; font-size: 1.05rem;">The tool has way too many features that are hard to fit on a mobile screen, and it is best used with a mouse, and some features really need a mouse. Designing a mobile version is being planned but won't be ready for quite some time.</p>
+                </div>
+                
+                <div class="intro-header">
+                    <h2><span data-i18n="intro_welcome">Welcome to</span> <span style="color: #10b981;">D</span>SCRIPT<span style="color: #6366f1;">OR</span></h2>
+                    <p style="color: var(--text-muted); font-size: 1.15rem; margin-top: 8px;">Living text to bring depth to your world and lore.</p>
+                </div>
+                
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <button id="dismiss-intro-btn" style="padding: 14px 40px; font-size: 1.2rem; background: #000; color: #10b981; border: 2px solid #10b981; border-radius: 8px; cursor: pointer; font-weight: bold; transition: all 0.2s; box-shadow: 0 4px 12px rgba(16,185,129,0.2);" onmouseover="this.style.background='#10b981'; this.style.color='#000'" onmouseout="this.style.background='#000'; this.style.color='#10b981'">Start Dscripting</button>
+                </div>
+                
+                <div class="intro-grid">
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_genesis_title">Genesis</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_genesis_desc">This is where it begins. Get inspired and design foundational glyphs, symbols, and characters, then collect them into your personal character bank.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_codex_title">Codex</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_codex_desc">Take your character bank and turn it into fonts of many styles. You can download raw font files directly, or pass your library down the workflow to the Scribe.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_scribe_title">Scribe</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_scribe_desc">The Scribe uses your characters, but not just as a static font. It adds the organic imperfections of true handwriting, ensuring that no two characters ever look the same—even when the same character is repeated.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_stamper_title">Stamper</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_stamper_desc">Take the organic text produced by the Scribe and stamp it onto your 3D assets, either as a floating decal or baked directly into the model's texture.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_sculptor_title">Sculptor</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_sculptor_desc">Extrude your 2D designs into the third dimension. Export your characters as 3D STLs for 3D printing or for further sculpting in other software.</em>
+                        </div>
+                    </div>
+                    
+                    <div class="intro-box">
+                        <div class="intro-box-tab active" style="background: var(--accent-indigo);" data-i18n="intro_carver_title">Carver</div>
+                        <div class="intro-box-content">
+                            <em data-i18n="intro_carver_desc">An experimental expert at digital engraving. The Carver uses height maps, normal maps, ambient occlusion, and advanced 3D tricks to carve your characters deep into your 3D models.</em>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </main>
+
+        <!-- Tutorial Modal Overlay -->
+        <div id="tutorial-overlay" class="modal-overlay hidden">
+            <iframe id="tutorial-modal-frame" src="./tutorial/index.html" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

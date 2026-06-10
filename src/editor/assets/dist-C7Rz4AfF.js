@@ -1,0 +1,1 @@
+import{c as e}from"./dist-DpLPo4lX.js";export{e as GlobalSettings};

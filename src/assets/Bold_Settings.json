@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "familyName": "Bold",
+  "familyModifiers": {
+    "baseSize": 13,
+    "styleParams": {
+      "pictoBaseSize": 8,
+      "techBaseSize": 0,
+      "organicThinning": -0.45
+    },
+    "vectorizeBlur": 3
+  },
+  "characterModifiers": {},
+  "spacerBounds": {
+    "x": 0,
+    "y": 0,
+    "w": 600,
+    "h": 600
+  }
+}

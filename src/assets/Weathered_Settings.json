@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "familyName": "Weathered",
+  "familyModifiers": {
+    "vectorizeBlur": 12,
+    "vectorizeSharpen": 51,
+    "styleParams": {
+      "pictoBaseSize": 17,
+      "organicThinning": -1,
+      "organicBaseSize": 7
+    },
+    "miterLimit": 0.7,
+    "tiltAngle": 0.1
+  },
+  "characterModifiers": {},
+  "spacerBounds": {
+    "x": 0,
+    "y": 0,
+    "w": 600,
+    "h": 600
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "@fontgen/assets",
+  "version": "1.0.0",
+  "description": "Shared assets for the FontGen project",
+  "private": true
+}

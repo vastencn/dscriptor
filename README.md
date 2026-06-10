@@ -21,7 +21,7 @@ Dscriptor is divided into specialized modules, each serving a distinct purpose i
 
 Genesis (Editor): This is where it begins. Get inspired and design foundational glyphs, symbols, and characters, then collect them into your personal character bank.
 
-Codex (Fonts): Take your character bank and turn it into fonts of many styles. You can download raw .ttf font files directly, or pass your library down the workflow.
+Codex (Fonts): Take your character bank and turn it into fonts of many styles. You can download raw .otf font files directly, or pass your library down the workflow.
 
 Scribe (Text): The Scribe uses your characters, but not just as a static font. It adds the organic imperfections of true handwriting, ensuring that no two characters ever look the same—even when the same character is repeated.
 
